@@ -1,0 +1,20 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092,localhost:9094
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.notification.model"
+        spring.json.value.default.type: "com.notification.model.UserEventDTO"
+
+resend:
+  api:
+    key:
+
+notification:
+  email:
+    from: "supercoolsiteteam@mail.ru"
+    test_email: ${TEST_EMAIL}
