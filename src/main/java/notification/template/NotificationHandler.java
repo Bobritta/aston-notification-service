@@ -1,7 +1,7 @@
 package notification.template;
 
-import com.notification.model.UserEventDTO;
-import com.notification.model.UserEventType;
+import notification.model.UserEventDTO;
+import notification.model.UserEventType;
 
 public interface NotificationHandler {
     UserEventType getType();

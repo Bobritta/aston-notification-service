@@ -17,10 +17,10 @@ import org.springframework.stereotype.Service;
 public class EmailApiService {
     private final Resend resend;
 
-    @Value("${resend.api.key}")
+    @Value("${notification.email.from}")
     private String from;
 
-    @Value("${resend.api.test_email}")
+    @Value("${notification.email.test_email}")
     private String testEmail;
 
     @Retryable(

@@ -1,8 +1,10 @@
 package notification.template;
 
-import com.notification.model.UserEventDTO;
-import com.notification.model.UserEventType;
+import notification.model.UserEventDTO;
+import notification.model.UserEventType;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RegistrationHandler implements NotificationHandler {
     @Override
     public UserEventType getType() {

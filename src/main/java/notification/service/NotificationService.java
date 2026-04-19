@@ -1,9 +1,9 @@
 package notification.service;
 
-import com.notification.exception.NotificationHandlingException;
-import com.notification.model.UserEventDTO;
-import com.notification.template.NotificationHandler;
-import com.notification.util.EmailApiService;
+import notification.exception.NotificationHandlingException;
+import notification.model.UserEventDTO;
+import notification.template.NotificationHandler;
+import notification.util.EmailApiService;
 import com.resend.core.exception.ResendException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,15 +15,17 @@ import java.util.List;
 public class NotificationService {
 
     private final EmailApiService emailApiService;
-    List<NotificationHandler>  notificationHandlers;
+    private final List<NotificationHandler>  notificationHandlers;
 
     public void sendEmail(UserEventDTO dto) throws ResendException {
         String message = notificationHandlers.stream()
-                .filter(h -> h.getType() == dto.eventType())
+                .filter(h ->  dto.eventType().equals(h.getType()))
                 .findFirst()
                 .map(h -> h.getMessage(dto))
                 .orElseThrow(() -> new NotificationHandlingException("Handler not found"));
 
-        emailApiService.sendNotification(dto.email(),  message);
+        System.out.println("_____________/n" + dto.email() + "/n_____________/n" + message);
+
+//        emailApiService.sendNotification(dto.email(),  message);
     }
 }
