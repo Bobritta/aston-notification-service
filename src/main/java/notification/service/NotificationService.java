@@ -26,6 +26,6 @@ public class NotificationService {
 
         System.out.println("_____________/n" + dto.email() + "/n_____________/n" + message);
 
-//        emailApiService.sendNotification(dto.email(),  message);
+        emailApiService.sendNotification(dto.email(),  message);
     }
 }

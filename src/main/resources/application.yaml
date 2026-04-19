@@ -15,9 +15,9 @@ spring:
 
 resend:
   api:
-    key: test_key
+    key: ${RESEND_KEY}
 
 notification:
   email:
-    from: "supercoolsiteteam@mail.ru"
+    from: "onboarding@resend.dev"
     test_email: ${TEST_EMAIL}

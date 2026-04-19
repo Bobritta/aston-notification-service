@@ -33,7 +33,7 @@ public class EmailApiService {
 
         CreateEmailOptions params = CreateEmailOptions.builder()
                 .from(from)
-                .to(testEmail)
+                .to(testEmail) // заменить на имейл из аргумента для не тестовой логики
                 .subject("Уведомление системы")
                 .html(message)
                 .build();
