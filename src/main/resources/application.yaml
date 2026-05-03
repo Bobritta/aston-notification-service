@@ -1,23 +1,5 @@
-server:
-  port: 9090
-
 spring:
-  kafka:
-    bootstrap-servers: localhost:9092,localhost:9094
-    consumer:
-      group-id: notification-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "notification.model"
-        spring.json.value.default.type: "notification.model.UserEventDTO"
-
-resend:
-  api:
-    key: ${RESEND_KEY}
-
-notification:
-  email:
-    from: "onboarding@resend.dev"
-    test_email: ${TEST_EMAIL}
+  application:
+    name: notification-service
+  config:
+    import: "configserver:http://localhost:8888"
