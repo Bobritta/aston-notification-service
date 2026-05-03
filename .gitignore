@@ -16,6 +16,7 @@ build/
 !gradle-wrapper.properties
 
 ### Java ###
+.env
 *.class
 *.log
 *.ctxt
