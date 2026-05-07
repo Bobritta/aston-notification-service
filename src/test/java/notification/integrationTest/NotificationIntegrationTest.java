@@ -14,6 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 
 import java.time.Duration;
 
@@ -25,7 +26,7 @@ import static org.mockito.Mockito.when;
 import static org.testcontainers.shaded.org.awaitility.Awaitility.await;
 
 @ActiveProfiles("test")
-@SpringBootTest(classes = Application.class)
+@SpringBootTest()
 @EmbeddedKafka(partitions = 2, topics = {"user-created", "user-updated"})
 class NotificationIntegrationTest {
 
